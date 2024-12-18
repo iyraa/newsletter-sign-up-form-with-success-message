@@ -13,6 +13,7 @@
           extend: {
             colors: {
               tomato: "hsl(4, 100%, 67%)",
+              'tomato-lighter': "hsla(4, 100%, 67%, 20%)",
               "dark-slate-grey": "hsl(234, 29%, 20%)",
               "charcoal-grey": "hsl(235, 18%, 26%)",
               grey: "hsl(231, 7%, 60%)",
@@ -21,123 +22,98 @@
             fontFamily: {
               roboto: ["Roboto", "sans-serif"],
             },
+            listStyleImage: {
+              checkmark: 'url("/assets/images/icon-list.svg")',
+            },
           },
         },
       };
     </script>
   </head>
   <body
-    class="text-base bg-dark-slate-grey flex m-auto justify-center items-center h-screen"
+    class="text-base bg-dark-slate-grey flex flex-col m-auto justify-center overflow-auto scroll-smooth items-center h-screen"
   >
     <!-- Container -->
-    <div class="md:w-fit m-auto bg-white rounded-xl shadow-md overflow-hidden">
-      <div class="md:flex md:flex-row-reverse">
+    <div
+      class="md:w-fit md:h-fit h-screen w-screen m-auto bg-white md:rounded-3xl shadow-md smooth-scroll overflow-auto"
+    >
+      <div class="flex flex-col md:flex-row-reverse">
         <!-- Image Col -->
-        <div class="md:shrink-0 p-4 flex">
+        <div id="img-col" class="md:shrink-0 md:p-6 flex items-center">
           <img
             id="responsive-img"
-            class="m-auto object-scale-down"
+            class="m-auto md:object-scale-down w-full object-cover"
             src="/assets/images/illustration-sign-up-desktop.svg"
-            alt="Modern building architecture"
+            alt="Sign up image"
           />
         </div>
 
         <!-- Subsribe Column-->
-        <div
-          class="p-8 md:px-12 md:min-w-max max-w-sm flex-col justify-center m-auto items-center space-y-8"
+        <div id="sub-col"
+          class="p-8 md:px-12 md:max-w-md flex flex-col justify-center md:m-auto my-5 mx-auto gap-y-6"
         >
-          <div class="font-bold tracking-wide text-6xl text-dark-slate-grey">
+          <div
+            class="font-bold tracking-wide text-4xl md:text-5xl text-dark-slate-grey"
+          >
             Stay updated!
           </div>
           <p class="text-dark-slate-grey">
             Join 60,000+ product managers receiving monthly updates on:
           </p>
 
-          <ul class="space-y-2">
+          <ul class="list-image-checkmark space-y-2 list-inside">
             <li>
-              <img
-                src="/assets/images/icon-list.svg"
-                alt="list-img"
-                class="inline pr-4"
-              />Product discovery and building what matters
+              <span class="align-top"> Product discovery and building what matters</span>
             </li>
             <li>
-              <img
-                src="/assets/images/icon-list.svg"
-                alt="list-img"
-                class="inline pr-4"
-              />Measuring to ensure updates are a success
-            </li>
+              <span class="align-top">Measuring to ensure updates are a success</li></span>
             <li>
-              <img
-                src="/assets/images/icon-list.svg"
-                alt="list-img"
-                class="inline pr-4"
-              />And much more!
-            </li>
+              <span class="align-top">And much more!</li></span>
           </ul>
 
-          <form id="email" class="space-y-4">
-            <label for="email" class="block font-semibold">Email Address</label>
-            <input
-              type="email"
-              name="email"
-              id="email-input"
-              class="w-full text-sm border border-grey p-2.5 rounded-md block focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-              placeholder="email@company.com"
-            />
+          <form id="email" class="space-y-4" onsubmit="handleSubmit(event)">
+            <div class="flex flex-row justify-between">
+            <label for="email" class=" font-semibold">Email Address</label>
             <span
               aria-live="polite"
               id="email-error"
-              class="text-tomato text-sm hidden"
-            >Please enter a valid email address</span>
+              class="text-tomato text-sm font-semibold hidden"
+              >Valid email required</span
+            >
+            </div>
+            <input
+              type="text"
+              name="email"
+              id="email-input"
+              class="w-full text-sm border border-grey p-2.5 rounded-md block focus:outline-none focus:ring-charcoal-grey focus:border-charcoal-grey sm:text-sm"
+              placeholder="email@company.com"
+            />
+            
 
             <button
               type="submit"
-              class="w-full bg-dark-slate-grey text-white font-semibold py-4 rounded-xl"
+              class="w-full bg-dark-slate-grey text-white font-semibold py-4 rounded-xl cursor-pointer hover:bg-gradient-to-r hover:from-tomato hover:to-orange-500"
             >
-              Subsribe to montly newsletter
+              Subsribe to monthly newsletter
             </button>
           </form>
         </div>
+
+        <!-- Thank you column -->
+         <div id="thanks-col" class="hidden flex flex-col mx-10 justify-around h-screen md:max-w-sm md:max-h-96 md:m-10">
+          <div class="space-y-8 text-balance">
+            <img src="/assets/images/icon-success.svg" alt="success-icon" class="h-14">
+            <h1 class="font-bold text-5xl">Thanks for subscribing!</h1>
+            <p>A confirmation email has been sent to <span id="email-span" class="font-semibold">ash@loremcompany.com</span>.
+              Please open it and click the button inside to confirm your subscription.</p>
+          </div>
+          <button id="dismiss-btn" class="mt-4 bg-dark-slate-grey text-white py-4 rounded-xl cursor-pointer hover:bg-gradient-to-r hover:from-tomato hover:to-orange-500">Dismiss message</button>
+         </div>
+         <!-- End thank you column -->
       </div>
     </div>
+    <p class="hidden md:block text-tomato my-2">Challenge by <a href="https://www.frontendmentor.io/challenges/newsletter-signup-form-with-success-message-3FC1AZbNrv">Frontend Mentor</a>. Coded by <a href="https://www.frontendmentor.io/profile/iyraa">Iyra</a>.</p>
 
-    <script>
-
-      // Email validation
-      function handleSubmit(event) {
-        event.preventDefault();
-        // Prevent default form submission behavior
-        const emailInput = document.getElementById("email-input");
-        const emailError = document.getElementById("email-error");
-        const emailValue = emailInput.value;
-        // Simple email pattern
-        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailPattern.test(emailValue)) {
-          emailError.textContent = "Please enter a valid email address.";
-          emailInput.classList.add("border-red-500");
-          emailInput.classList.remove("border-grey");
-        } else {
-          emailError.textContent = "";
-          emailInput.classList.remove("border-red-500");
-          emailInput.classList.add("border-grey");
-        }
-      }
-
-      //change image
-      function switchImage() {
-        const imgElement = document.getElementById("responsive-img");
-        if (window.innerWidth <= 640) {
-          imgElement.src = "/assets/images/illustration-sign-up-mobile.svg";
-        } else {
-          imgElement.src = "/assets/images/illustration-sign-up-desktop.svg";
-        }
-      }
-      // Call switchImage on initial load
-      switchImage();
-      // Add event listener to call switchImage on window resize
-      window.addEventListener("resize", switchImage);
-    </script>
+    <script src="/src/script.js"></script>
   </body>
 </html>
