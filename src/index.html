@@ -23,7 +23,7 @@
               roboto: ["Roboto", "sans-serif"],
             },
             listStyleImage: {
-              checkmark: 'url("/assets/images/icon-list.svg")',
+              checkmark: 'url("assets/images/icon-list.svg")',
             },
           },
         },
@@ -43,14 +43,14 @@
           <img
             id="responsive-img"
             class="m-auto md:object-scale-down w-full object-cover"
-            src="/assets/images/illustration-sign-up-desktop.svg"
+            src="assets/images/illustration-sign-up-desktop.svg"
             alt="Sign up image"
           />
         </div>
 
         <!-- Subsribe Column-->
         <div id="sub-col"
-          class="p-8 md:px-12 md:max-w-md flex flex-col justify-center md:m-auto my-5 mx-auto gap-y-6"
+          class="p-8 md:px-12 md:max-w-md flex flex-col justify-center md:m-auto my-5 mx-auto gap-y-10"
         >
           <div
             class="font-bold tracking-wide text-4xl md:text-5xl text-dark-slate-grey"
@@ -71,7 +71,7 @@
               <span class="align-top">And much more!</li></span>
           </ul>
 
-          <form id="email" class="space-y-4" onsubmit="handleSubmit(event)">
+          <form id="email" onsubmit="handleSubmit(event)">
             <div class="flex flex-row justify-between">
             <label for="email" class=" font-semibold">Email Address</label>
             <span
@@ -85,14 +85,14 @@
               type="text"
               name="email"
               id="email-input"
-              class="w-full text-sm border border-grey p-2.5 rounded-md block focus:outline-none focus:ring-charcoal-grey focus:border-charcoal-grey sm:text-sm"
+              class="w-full my-4 text-sm border border-grey p-2.5 rounded-md block focus:outline-none focus:ring-charcoal-grey focus:border-charcoal-grey sm:text-sm"
               placeholder="email@company.com"
             />
             
 
             <button
               type="submit"
-              class="w-full bg-dark-slate-grey text-white font-semibold py-4 rounded-xl cursor-pointer hover:bg-gradient-to-r hover:from-tomato hover:to-orange-500"
+              class="my-4 w-full bg-dark-slate-grey text-white font-semibold py-4 rounded-xl cursor-pointer hover:bg-gradient-to-r hover:from-tomato hover:to-orange-500"
             >
               Subsribe to monthly newsletter
             </button>
@@ -102,7 +102,7 @@
         <!-- Thank you column -->
          <div id="thanks-col" class="hidden flex flex-col mx-10 justify-around h-screen md:max-w-sm md:max-h-96 md:m-10">
           <div class="space-y-8 text-balance">
-            <img src="/assets/images/icon-success.svg" alt="success-icon" class="h-14">
+            <img src="assets/images/icon-success.svg" alt="success-icon" class="h-14">
             <h1 class="font-bold text-5xl">Thanks for subscribing!</h1>
             <p>A confirmation email has been sent to <span id="email-span" class="font-semibold">ash@loremcompany.com</span>.
               Please open it and click the button inside to confirm your subscription.</p>

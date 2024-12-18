@@ -32,6 +32,7 @@ function handleSubmit(event) {
     imgCol.classList.add("hidden");
     subCol.classList.add("hidden");
     thanksCol.classList.remove("hidden");
+    emailInput.value = "";
   }
 }
 
