@@ -31,7 +31,7 @@ Users should be able to:
 ### Screenshot
 
 ![Desktop Image](/assets/images/screenshot.png)
-![Mobile Image](/assets/images/screenshot.png)
+![Mobile Image](/assets/images/screenshot-2.png)
 
 ### Links
 
@@ -59,4 +59,4 @@ TailwindCSS
 ## Author
 
 - Website - [Iyra](https://github.com/iyraa)
-- Frontend Mentor - [@iyraa](https://www.frontendmentor.io/profile/iyraa)
+- Frontend Mentor - [@iyraa](https://github.com/iyraa/newsletter-sign-up-form-with-success-message)
