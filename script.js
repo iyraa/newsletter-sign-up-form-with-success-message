@@ -47,9 +47,9 @@ dismissBtn.addEventListener("click", function () {
 function switchImage() {
   const imgElement = document.getElementById("responsive-img");
   if (window.innerWidth <= 640) {
-    imgElement.src = "/assets/images/illustration-sign-up-mobile.svg";
+    imgElement.src = "assets/images/illustration-sign-up-mobile.svg";
   } else {
-    imgElement.src = "/assets/images/illustration-sign-up-desktop.svg";
+    imgElement.src = "assets/images/illustration-sign-up-desktop.svg";
   }
 }
 // Call switchImage on initial load
