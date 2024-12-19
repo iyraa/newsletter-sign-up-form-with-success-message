@@ -31,7 +31,6 @@ Users should be able to:
 ### Screenshot
 
 ![Desktop Image](/assets/images/screenshot.png)
-![Mobile Image](/assets/images/screenshot-2.png)
 
 ### Links
 
